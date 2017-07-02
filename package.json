@@ -1,0 +1,24 @@
+{
+  "name": "music-api",
+  "version": "1.0.0",
+  "description": "DWA Music API",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eheckard23/DWA_API.git"
+  },
+  "author": "Ethan Heckard",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eheckard23/DWA_API/issues"
+  },
+  "homepage": "https://github.com/eheckard23/DWA_API#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "sequelize": "^4.2.1"
+  }
+}
