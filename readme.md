@@ -1,4 +1,4 @@
-## Overview (v0.0.0)
+## Overview (v1.0.0)
 In this guide you will:
 
 * Create a Virtual Private Server(VPS) - [Follow this guide](https://github.com/eheckard23/DWA_API/blob/dev/setup.md) on how to set that up
@@ -93,18 +93,52 @@ Run `quit` to logout
 Clone or download this repo into a folder on your local computer.
 
 ## How to Operate
-In this setup, you will have a basic API route that looks like this:
-
-***routes/api/v0/index.js***
+Open up the **routes/index.js** file in your project. Double check that you have this and that your router is using the correct version(v1):
 
 ```javascript
 module.exports = (express) => {
 	const router = express.Router();
-	// test route
-	router.get('/test', (req,res) => {
-		res.json({ msg: 'Hello, World!' });
+
+	router.get('/status', (req,res) => {
+		res.status(200).json({ status: true });
 	});
+
+	router.use('/api/v1', require('./api/v1')(express));
 
 	return router;
 }
+``` 
+
+Now to add more basic routes, add this block inside of the **v1** folder's **index** file:
+
+***routes/api/v1/index.js***
+
+```javascript
+module.exports = (express) => {
+    const router = express.Router();
+
+    // create
+    router.post('/user', (req,res) => {
+        res.json({ msg: 'Create Data!' });
+    });
+
+    // read
+    router.get('/user', (req,res) => {
+        res.json({ msg: 'Find Data!' });
+    });
+
+    // update
+    router.put('/user', (req,res) => {
+        res.json({ msg: 'Find Data and update!' });
+    });
+
+    // delete
+    router.delete('/user', (req,res) => {
+        res.json({ msg: 'Find Data and delete!' });
+    });
+
+    return router;
+}
+
 ```
+For now you can test the routes and see a JSON response for what you will add in a later release.
