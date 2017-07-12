@@ -7,6 +7,6 @@ describe('Label: I am a test suite', () => {
     const targetPort = server.app.settings.port;
     const actualPort = server.instance.address().port;
 
-    expect(targetPort).to.be.equal(actualPort);
+    expect(targetPort).to.be.equal(9999);
   })
 });
